@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <script src="~/Scripts/modernizr-2.6.2.js" type="text/javascript"></script>
+    <link href="~/Content/html5reset-1.6.1.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    @RenderSection("ExtraStylesheets", false)
+</head>
+<body>
+    <header>
+        <h1>Movie Review Website</h1>
+    </header>
+    
+    @Html.Action("Nav", "Home", new { area = "" })
+    @Html.Action("CurrentUserInfo", "Home", new { area="" })
+
+    @RenderSection("ExtraNavigation", false)
+    
+    <hr />
+    
+    @RenderBody()
+
+    <hr />
+
+    <footer>
+        <p>Movie Review Website <time datetime="@DateTime.Now.ToString("s")">@DateTime.Now.Year</time></p>
+    </footer>
+
+    <!-- scripts go here -->
+    @*
+        the format for including scripts in a razor file is something like this:
+        
+        <script type="text/javascript" src="~/Scripts/YourScript.js"></script>
+
+        You would just need to fill in the relative path after the ~/
+    *@
+
+    <script type="text/javascript" src="~/Scripts/jquery-1.8.2.js"></script>
+    <script type="text/javascript" src="~/Scripts/MyScript.js"></script>
+    
+    @RenderSection("ExtraScripts", false)
+</body>
+</html>

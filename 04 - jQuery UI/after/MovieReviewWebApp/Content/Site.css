@@ -1,0 +1,360 @@
+#errorDialog
+{
+    display:none;
+    border:3px solid #CCC;
+    width:300px;
+    height:90px;
+    background-color:#EEE;
+    text-align:center;
+    padding:6px;
+    font-weight:bold;
+}
+
+.highlight
+{
+    background-color:#FFC !important;
+    cursor: pointer;
+}
+
+#imgContainer
+{
+    float:right;
+    width:200px;
+    height:400px;
+    overflow:auto;
+}
+
+#searchByGenre img,
+#movieSearch img,
+#reviewSearch img
+{
+    position:relative;
+    top:3px;
+    display:none;
+}
+
+#movieDetails
+{
+    display:none;
+    
+/*
+    z-index:1000;
+    position:fixed;
+    top:150px;
+    background-color:#EEE;
+    border:1px solid #535353;
+    width:800px;
+    padding:10px;
+*/
+}
+
+#movieDetails button
+{
+    position:absolute;
+    top:20px;
+    right:20px;
+}
+
+html
+{
+    padding:10px;
+}
+body
+{
+    font-size: .85em;
+    font-family: "Trebuchet MS", Verdana, Helvetica, Sans-Serif;
+    color: #232323;
+    background-color: #fff;
+    width:800px;
+    margin:auto;
+    line-height:1.6em;
+}
+
+h1
+{
+    font-size:2em;
+    margin:.8em 0;
+}
+
+h2
+{
+    font-size:1.6em;
+    margin:.8em 0;
+}
+
+article > h1,
+article > h2
+{
+    font-size:1.6em;
+}
+
+article
+{
+    margin:.8em 0;
+}
+
+header,
+footer,
+nav,
+section,
+article {
+    display: block;
+}
+
+body > header,
+body > footer
+{
+    text-align:center;    
+}
+
+body > article,
+body > section,
+body > nav,
+body > footer,
+body > h1,
+body > h2,
+body > h3,
+body > h4,
+body > hr
+{
+    clear:both;
+}
+
+#home-currentuserinfo
+{
+    float:right;
+}
+
+#home-currentuserinfo nav
+{
+    display:inline-block;
+}
+
+body > nav,
+#home-currentuserinfo
+{
+    line-height:1.8em;
+}
+
+body > nav
+{
+    float:left;
+}
+
+body > nav li,
+#home-currentuserinfo span,
+#home-currentuserinfo li
+{
+    display:inline;
+    margin:3px;
+    padding:0 8px 0 0;
+    border-right:1px solid #535353;
+}
+
+.menu-current
+{
+    font-weight:bold;
+}
+
+body > nav li a,
+#home-currentuserinfo a
+{
+    text-transform:uppercase;
+    text-decoration:none;
+}
+
+body > nav li a:hover,
+#home-currentuserinfo a:hover
+{
+    text-decoration:underline;
+}
+
+
+a
+{
+    color:#535353;
+    text-decoration:underline;
+}
+
+a:hover
+{
+    color:#191919;
+}
+
+table
+{
+    overflow:scroll;
+}
+
+td, th
+{
+    white-space:nowrap;
+    padding: 1px 2px;
+}
+
+p
+{
+    margin:1em 0;
+}
+
+li
+{
+    list-style-type:none;
+}
+
+/* specific areas/views */
+.movieDetail .moviePoster,
+.reviewDetail .moviePoster
+{
+    float:left;
+    margin-right:30px;
+}
+
+.reviewDetail li
+{
+    border-bottom:1px solid #CCC;
+    border-top:1px solid #CCC;
+}
+
+.starsEditor li
+{
+    border:none;
+}
+.starsEditor li label:after
+{
+    content:normal;
+}
+.starsEditor li img
+{
+    position:relative;
+    top:5px;
+}
+
+.newReview .starsEditor li
+{
+    display:inline;        
+    padding:4px 7px;
+}
+.newReview textarea
+{
+    display:block;
+    width:600px;
+    height:200px;    
+}
+
+/* Styles for basic forms
+-----------------------------------------------------------*/
+
+fieldset 
+{
+    /* border:1px solid #ddd; */
+    border:none;
+    padding:0 1.4em 1.4em 1.4em;
+    margin:0 0 1.5em 0;
+}
+
+label
+{
+    font-weight:bold;
+}
+label:after
+{
+    content:":";
+}
+
+fieldset label
+{
+    text-align:right;
+    display:inline-block;
+    width:130px;    
+}
+
+legend 
+{
+    font-size:1.2em;
+    font-weight: bold;
+}
+
+textarea 
+{
+    min-height: 75px;
+}
+
+.editor-label 
+{
+    margin: 1em 0 0 0;
+    float:left;
+    width:140px;
+    clear:left;
+    line-height:1.6em;
+}
+
+.editor-field 
+{
+    margin:1em 0 0 0;
+    margin-left:110px;
+    line-height:1.6em;
+    clear:right;
+}
+
+.editor-field ol
+{
+    clear:both;
+}
+
+/* jQuery.validate */
+label.error
+{
+    color:#F00;
+    width:auto;
+    margin:5px;
+}
+label.error:after
+{
+    content:inherit;
+}
+
+
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error
+{
+    color: #ff0000;
+    background-repeat:no-repeat;
+    background-image:url('images/validation-error.png');
+    position:relative;
+    top:3px;
+    width:16px;
+    height:16px;
+    display:inline-block;
+}
+
+.field-validation-valid
+{
+    display: none;
+}
+
+.input-validation-error
+{
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
+
+.validation-summary-errors
+{
+    font-weight: bold;
+    color: #ff0000;
+    margin:10px;
+}
+
+.validation-summary-valid
+{
+    display: none;
+}
+
+.validation-summary-errors li
+{
+    margin:0 0 0 30px;
+    list-style-type:disc;
+}

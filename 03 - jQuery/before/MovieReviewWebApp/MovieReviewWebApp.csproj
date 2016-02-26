@@ -1,0 +1,1061 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4C373688-B54C-4014-8732-DFBB52A191A4}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MovieReviewWebApp</RootNamespace>
+    <AssemblyName>MovieReviewWebApp</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Unity.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Unity.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Areas\Account\AccountAreaRegistration.cs" />
+    <Compile Include="Areas\Account\Controllers\AuthController.cs" />
+    <Compile Include="Areas\Account\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Account\Models\CreateAccountInputModel.cs" />
+    <Compile Include="Areas\Admin\Controllers\MovieController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ReviewController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ReviewerGenreController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UserController.cs" />
+    <Compile Include="Areas\Reviews\ViewModels\InvalidGenreViewModel.cs" />
+    <Compile Include="Models\ReviewerGenreRepository.cs" />
+    <Compile Include="Areas\Movies\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Movies\MoviesAreaRegistration.cs" />
+    <Compile Include="Areas\Movies\ViewModels\MovieIndexViewModel.cs" />
+    <Compile Include="Areas\Movies\ViewModels\ViewByGenreViewModel.cs" />
+    <Compile Include="Areas\Reviews\Controllers\ReviewController.cs" />
+    <Compile Include="Areas\Reviews\ViewModels\AllReviewsViewModel.cs" />
+    <Compile Include="Areas\Reviews\ViewModels\CreateReviewViewModel.cs" />
+    <Compile Include="Areas\Reviews\ViewModels\RecentReviewsViewModel.cs" />
+    <Compile Include="Areas\Reviews\ViewModels\ReviewsViewByMovieViewModel.cs" />
+    <Compile Include="Areas\Reviews\ViewModels\ReviewViewModel.cs" />
+    <Compile Include="Controllers\HomeController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\PosterController.cs" />
+    <Compile Include="Models\ReviewerGenre.cs" />
+    <Compile Include="Models\ReviewRepository.cs" />
+    <Compile Include="Models\Review.cs" />
+    <Compile Include="Models\UserRepository.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\CountryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DirectorController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GenreController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Models\CountryRepository.cs" />
+    <Compile Include="Models\DirectorRepository.cs" />
+    <Compile Include="Models\GenreRepository.cs" />
+    <Compile Include="Models\MovieRepository.cs" />
+    <Compile Include="Areas\Admin\ViewModels\AdminNavViewModel.cs" />
+    <Compile Include="Areas\Reviews\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Reviews\ReviewsAreaRegistration.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Country.cs" />
+    <Compile Include="Models\Director.cs" />
+    <Compile Include="Models\Genre.cs" />
+    <Compile Include="Models\Movie.cs" />
+    <Compile Include="Models\MovieReviewDBContext.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\AuthenticationService.cs" />
+    <Compile Include="Service\FormsAuthCurrentUser.cs" />
+    <Compile Include="Service\IAuthentication.cs" />
+    <Compile Include="Service\ICurrentUser.cs" />
+    <Compile Include="Service\IDateTime.cs" />
+    <Compile Include="Utility\EmailAttribute.cs" />
+    <Compile Include="Utility\HtmlHelpers.cs" />
+    <Compile Include="Utility\MinStringLength.cs" />
+    <Compile Include="Utility\QueryableExtension.cs" />
+    <Compile Include="Utility\CustomAuthorizationAttribute.cs" />
+    <Compile Include="Utility\UnityDependencyResolver.cs" />
+    <Compile Include="Utility\ILog.cs" />
+    <Compile Include="Areas\Account\Models\AccountLoginViewModel.cs" />
+    <Compile Include="ViewModels\NavigationViewModel.cs" />
+    <Compile Include="ViewModels\PagedViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\MovieReviewWebApp.Models.MovieWebAppDBContext.sdf" />
+    <Content Include="Content\html5reset-1.6.1.css" />
+    <Content Include="Content\images\star-empty.png" />
+    <Content Include="Content\images\star.png" />
+    <Content Include="Content\images\validation-error.png" />
+    <Content Include="Content\images\Unknown.png" />
+    <Content Include="Content\Posters\10.jpg" />
+    <Content Include="Content\Posters\1900.jpg" />
+    <Content Include="Content\Posters\A.I..jpg" />
+    <Content Include="Content\Posters\AboutSchmidt.jpg" />
+    <Content Include="Content\Posters\ABriefHistoryofTime.jpg" />
+    <Content Include="Content\Posters\AbsenceofMalice.jpg" />
+    <Content Include="Content\Posters\AClockworkOrange.jpg" />
+    <Content Include="Content\Posters\Adam%27sRib.jpg" />
+    <Content Include="Content\Posters\Adaptation.jpg" />
+    <Content Include="Content\Posters\Affliction.jpg" />
+    <Content Include="Content\Posters\AGeisha.jpg" />
+    <Content Include="Content\Posters\Aguirre,theWrathofGod.jpg" />
+    <Content Include="Content\Posters\Airplane!.jpg" />
+    <Content Include="Content\Posters\Aladdin.jpg" />
+    <Content Include="Content\Posters\ALeagueofTheirOwn.jpg" />
+    <Content Include="Content\Posters\AlexanderNevsky.jpg" />
+    <Content Include="Content\Posters\Alice%27sRestaurant.jpg" />
+    <Content Include="Content\Posters\AliceDoesn%27tLiveHereAnymore.jpg" />
+    <Content Include="Content\Posters\Aliens.jpg" />
+    <Content Include="Content\Posters\AllAboutEve.jpg" />
+    <Content Include="Content\Posters\AllAboutMyMother.jpg" />
+    <Content Include="Content\Posters\AllQuietontheWesternFront.jpg" />
+    <Content Include="Content\Posters\AllThatHeavenAllows.jpg" />
+    <Content Include="Content\Posters\AlltheKing%27sMen.jpg" />
+    <Content Include="Content\Posters\AllthePresident%27sMen.jpg" />
+    <Content Include="Content\Posters\ALoveinGermany.jpg" />
+    <Content Include="Content\Posters\Amadeus.jpg" />
+    <Content Include="Content\Posters\Amarcord.jpg" />
+    <Content Include="Content\Posters\AmericanGraffiti.jpg" />
+    <Content Include="Content\Posters\AmericanMovie.jpg" />
+    <Content Include="Content\Posters\AmoresPerros.jpg" />
+    <Content Include="Content\Posters\Amélie.jpg" />
+    <Content Include="Content\Posters\AnAmericaninParis.jpg" />
+    <Content Include="Content\Posters\Anastasia.jpg" />
+    <Content Include="Content\Posters\AnatomyofaMurder.jpg" />
+    <Content Include="Content\Posters\AnnaandtheKingofSiam.jpg" />
+    <Content Include="Content\Posters\AnnieHall.jpg" />
+    <Content Include="Content\Posters\ANouslaLiberte.jpg" />
+    <Content Include="Content\Posters\ApocalypseNow.jpg" />
+    <Content Include="Content\Posters\Apollo13.jpg" />
+    <Content Include="Content\Posters\AshesandDiamonds.jpg" />
+    <Content Include="Content\Posters\ASlightCaseofMurder.jpg" />
+    <Content Include="Content\Posters\AStreetcarNamedDesire.jpg" />
+    <Content Include="Content\Posters\AtlanticCity.jpg" />
+    <Content Include="Content\Posters\AuRevoirLesEnfants.jpg" />
+    <Content Include="Content\Posters\AWalkintheSun.jpg" />
+    <Content Include="Content\Posters\Babette%27sFeast.jpg" />
+    <Content Include="Content\Posters\BabyDoll.jpg" />
+    <Content Include="Content\Posters\BacktotheFuture.jpg" />
+    <Content Include="Content\Posters\BadDayatBlackRock.jpg" />
+    <Content Include="Content\Posters\Badlands.jpg" />
+    <Content Include="Content\Posters\BallofFire.jpg" />
+    <Content Include="Content\Posters\Bambi.jpg" />
+    <Content Include="Content\Posters\BangtheDrumSlowly.jpg" />
+    <Content Include="Content\Posters\Barfly.jpg" />
+    <Content Include="Content\Posters\BarryLyndon.jpg" />
+    <Content Include="Content\Posters\BartonFink.jpg" />
+    <Content Include="Content\Posters\BeautifulPeople.jpg" />
+    <Content Include="Content\Posters\BeautyandtheBeast.jpg" />
+    <Content Include="Content\Posters\BedandBoard.jpg" />
+    <Content Include="Content\Posters\Beetlejuice.jpg" />
+    <Content Include="Content\Posters\BeforeNightFalls.jpg" />
+    <Content Include="Content\Posters\BeingJohnMalkovich.jpg" />
+    <Content Include="Content\Posters\BeingThere.jpg" />
+    <Content Include="Content\Posters\BelledeJour.jpg" />
+    <Content Include="Content\Posters\Ben-Hur.jpg" />
+    <Content Include="Content\Posters\BeverlyHillsCop.jpg" />
+    <Content Include="Content\Posters\BigNight.jpg" />
+    <Content Include="Content\Posters\BillyLiar.jpg" />
+    <Content Include="Content\Posters\BiloxiBlues.jpg" />
+    <Content Include="Content\Posters\Birdy.jpg" />
+    <Content Include="Content\Posters\BlackNarcissus.jpg" />
+    <Content Include="Content\Posters\BlackOrpheus.jpg" />
+    <Content Include="Content\Posters\BlackRobe.jpg" />
+    <Content Include="Content\Posters\BlazingSaddles.jpg" />
+    <Content Include="Content\Posters\BloodySunday.jpg" />
+    <Content Include="Content\Posters\Blow-Up.jpg" />
+    <Content Include="Content\Posters\BlueCollar.jpg" />
+    <Content Include="Content\Posters\BlueVelvet.jpg" />
+    <Content Include="Content\Posters\Bob&amp;Carol&amp;Ted&amp;Alice.jpg" />
+    <Content Include="Content\Posters\BobleFlambeur.jpg" />
+    <Content Include="Content\Posters\BodyHeat.jpg" />
+    <Content Include="Content\Posters\BonnieandClyde.jpg" />
+    <Content Include="Content\Posters\BoogieNights.jpg" />
+    <Content Include="Content\Posters\BornontheFourthofJuly.jpg" />
+    <Content Include="Content\Posters\BornYesterday.jpg" />
+    <Content Include="Content\Posters\BoundforGlory.jpg" />
+    <Content Include="Content\Posters\BoysDon%27tCry.jpg" />
+    <Content Include="Content\Posters\BoyzNtheHood.jpg" />
+    <Content Include="Content\Posters\Brazil.jpg" />
+    <Content Include="Content\Posters\BreakerMorant.jpg" />
+    <Content Include="Content\Posters\BreakingAway.jpg" />
+    <Content Include="Content\Posters\BreakingtheWaves.jpg" />
+    <Content Include="Content\Posters\Breathless.jpg" />
+    <Content Include="Content\Posters\BriefEncounter.jpg" />
+    <Content Include="Content\Posters\BringingUpBaby.jpg" />
+    <Content Include="Content\Posters\BroadcastNews.jpg" />
+    <Content Include="Content\Posters\Brother%27sKeeper.jpg" />
+    <Content Include="Content\Posters\BullDurham.jpg" />
+    <Content Include="Content\Posters\Bullitt.jpg" />
+    <Content Include="Content\Posters\BusStop.jpg" />
+    <Content Include="Content\Posters\ButchCassidyandtheSundanceKid.jpg" />
+    <Content Include="Content\Posters\ByeByeBrasil.jpg" />
+    <Content Include="Content\Posters\Cabaret.jpg" />
+    <Content Include="Content\Posters\CaliforniaSuite.jpg" />
+    <Content Include="Content\Posters\Calle54.jpg" />
+    <Content Include="Content\Posters\Camelot.jpg" />
+    <Content Include="Content\Posters\Camille.jpg" />
+    <Content Include="Content\Posters\CaptainsCourageous.jpg" />
+    <Content Include="Content\Posters\CarmenJones.jpg" />
+    <Content Include="Content\Posters\CarnalKnowledge.jpg" />
+    <Content Include="Content\Posters\Casablanca.jpg" />
+    <Content Include="Content\Posters\Catch-22.jpg" />
+    <Content Include="Content\Posters\CatonaHotTinRoof.jpg" />
+    <Content Include="Content\Posters\Cavalcade.jpg" />
+    <Content Include="Content\Posters\ChanIsMissing.jpg" />
+    <Content Include="Content\Posters\ChariotsofFire.jpg" />
+    <Content Include="Content\Posters\CharleyVarrick.jpg" />
+    <Content Include="Content\Posters\Chicago.jpg" />
+    <Content Include="Content\Posters\ChickenRun.jpg" />
+    <Content Include="Content\Posters\Chinatown.jpg" />
+    <Content Include="Content\Posters\ChloëintheAfternoon.jpg" />
+    <Content Include="Content\Posters\Chocolat.jpg" />
+    <Content Include="Content\Posters\CitizenKane.jpg" />
+    <Content Include="Content\Posters\Claire%27sKnee.jpg" />
+    <Content Include="Content\Posters\Close-Up.jpg" />
+    <Content Include="Content\Posters\CloseEncountersoftheThirdKind.jpg" />
+    <Content Include="Content\Posters\Clueless.jpg" />
+    <Content Include="Content\Posters\CoalMiner%27sDaughter.jpg" />
+    <Content Include="Content\Posters\ComeBack,LittleSheba.jpg" />
+    <Content Include="Content\Posters\ComingHome.jpg" />
+    <Content Include="Content\Posters\Contempt.jpg" />
+    <Content Include="Content\Posters\CoolHandLuke.jpg" />
+    <Content Include="Content\Posters\CriesandWhispers.jpg" />
+    <Content Include="Content\Posters\Crossfire.jpg" />
+    <Content Include="Content\Posters\Crumb.jpg" />
+    <Content Include="Content\Posters\Cry,theBelovedCountry.jpg" />
+    <Content Include="Content\Posters\DamnYankees.jpg" />
+    <Content Include="Content\Posters\DancewithaStranger.jpg" />
+    <Content Include="Content\Posters\DangerousLiaisons.jpg" />
+    <Content Include="Content\Posters\DarkEyes.jpg" />
+    <Content Include="Content\Posters\DarkVictory.jpg" />
+    <Content Include="Content\Posters\Darling.jpg" />
+    <Content Include="Content\Posters\DavidCopperfield.jpg" />
+    <Content Include="Content\Posters\DavidHoltzman%27sDiary.jpg" />
+    <Content Include="Content\Posters\DawnoftheDead.jpg" />
+    <Content Include="Content\Posters\DayforNight.jpg" />
+    <Content Include="Content\Posters\DaysofHeaven.jpg" />
+    <Content Include="Content\Posters\DaysofWineandRoses.jpg" />
+    <Content Include="Content\Posters\DeadCalm.jpg" />
+    <Content Include="Content\Posters\DeadEnd.jpg" />
+    <Content Include="Content\Posters\DeadManWalking.jpg" />
+    <Content Include="Content\Posters\DeadofNight.jpg" />
+    <Content Include="Content\Posters\DeadRingers.jpg" />
+    <Content Include="Content\Posters\DeathinVenice.jpg" />
+    <Content Include="Content\Posters\Deliverance.jpg" />
+    <Content Include="Content\Posters\DesperatelySeekingSusan.jpg" />
+    <Content Include="Content\Posters\DestryRidesAgain.jpg" />
+    <Content Include="Content\Posters\Diabolique.jpg" />
+    <Content Include="Content\Posters\DialMforMurder.jpg" />
+    <Content Include="Content\Posters\DiaryofaChambermaid.jpg" />
+    <Content Include="Content\Posters\DiaryofaCountryPriest.jpg" />
+    <Content Include="Content\Posters\DieHard.jpg" />
+    <Content Include="Content\Posters\Diner.jpg" />
+    <Content Include="Content\Posters\DinneratEight.jpg" />
+    <Content Include="Content\Posters\DirtyHarry.jpg" />
+    <Content Include="Content\Posters\DirtyRottenScoundrels.jpg" />
+    <Content Include="Content\Posters\Disraeli.jpg" />
+    <Content Include="Content\Posters\Diva.jpg" />
+    <Content Include="Content\Posters\DoctorZhivago.jpg" />
+    <Content Include="Content\Posters\DonnieBrasco.jpg" />
+    <Content Include="Content\Posters\DotheRightThing.jpg" />
+    <Content Include="Content\Posters\Dr.JekyllandMr.Hyde.jpg" />
+    <Content Include="Content\Posters\DrowningbyNumbers.jpg" />
+    <Content Include="Content\Posters\EastofEden.jpg" />
+    <Content Include="Content\Posters\EatDrinkManWoman.jpg" />
+    <Content Include="Content\Posters\EightMenOut.jpg" />
+    <Content Include="Content\Posters\Fanny&amp;Alexander.jpg" />
+    <Content Include="Content\Posters\Farewell,MyConcubine.jpg" />
+    <Content Include="Content\Posters\FarfromHeaven.jpg" />
+    <Content Include="Content\Posters\Fargo.jpg" />
+    <Content Include="Content\Posters\Fast,Cheap&amp;OutofControl.jpg" />
+    <Content Include="Content\Posters\FastRunner%28Atanarjuat%29.jpg" />
+    <Content Include="Content\Posters\FatheroftheBride.jpg" />
+    <Content Include="Content\Posters\FistinHisPocket.jpg" />
+    <Content Include="Content\Posters\ForWhomtheBellTolls.jpg" />
+    <Content Include="Content\Posters\FriendlyPersuasion.jpg" />
+    <Content Include="Content\Posters\GangsofNewYork.jpg" />
+    <Content Include="Content\Posters\GhostWorld.jpg" />
+    <Content Include="Content\Posters\GosfordPark.jpg" />
+    <Content Include="Content\Posters\GreatExpectations.jpg" />
+    <Content Include="Content\Posters\GreenforDanger.jpg" />
+    <Content Include="Content\Posters\Hamlet.jpg" />
+    <Content Include="Content\Posters\Happiness.jpg" />
+    <Content Include="Content\Posters\HarlanCounty,USA.jpg" />
+    <Content Include="Content\Posters\HeavyTraffic.jpg" />
+    <Content Include="Content\Posters\HenryFool.jpg" />
+    <Content Include="Content\Posters\HereComesMr.Jordan.jpg" />
+    <Content Include="Content\Posters\HighandLow%28Japan%29.jpg" />
+    <Content Include="Content\Posters\HighArt.jpg" />
+    <Content Include="Content\Posters\HoopDreams.jpg" />
+    <Content Include="Content\Posters\HopeandGlory.jpg" />
+    <Content Include="Content\Posters\HouseholdSaints.jpg" />
+    <Content Include="Content\Posters\HusbandsandWives.jpg" />
+    <Content Include="Content\Posters\IKnowWhereI%27mGoing!.jpg" />
+    <Content Include="Content\Posters\IlPostino%28ThePostman%29.jpg" />
+    <Content Include="Content\Posters\InherittheWind.jpg" />
+    <Content Include="Content\Posters\InternalAffairs.jpg" />
+    <Content Include="Content\Posters\IntheBedroom.jpg" />
+    <Content Include="Content\Posters\IRememberMama.jpg" />
+    <Content Include="Content\Posters\It%27saGift.jpg" />
+    <Content Include="Content\Posters\JailhouseRock.jpg" />
+    <Content Include="Content\Posters\JeandeFlorette.jpg" />
+    <Content Include="Content\Posters\JerryMaguire.jpg" />
+    <Content Include="Content\Posters\JudgmentatNuremberg.jpg" />
+    <Content Include="Content\Posters\KnifeintheWater.jpg" />
+    <Content Include="Content\Posters\L%27Aged%27Or.jpg" />
+    <Content Include="Content\Posters\L%27Argent.jpg" />
+    <Content Include="Content\Posters\L%27Atalante.jpg" />
+    <Content Include="Content\Posters\L%27Avventura.jpg" />
+    <Content Include="Content\Posters\L.A.Confidential.jpg" />
+    <Content Include="Content\Posters\LaCérémonie.jpg" />
+    <Content Include="Content\Posters\LaDolceVita.jpg" />
+    <Content Include="Content\Posters\Ladybird,Ladybird.jpg" />
+    <Content Include="Content\Posters\LaFemmeInfidèle.jpg" />
+    <Content Include="Content\Posters\LaFemmeNikita.jpg" />
+    <Content Include="Content\Posters\Lamerica.jpg" />
+    <Content Include="Content\Posters\LeavingLasVegas.jpg" />
+    <Content Include="Content\Posters\LeBeauMariage.jpg" />
+    <Content Include="Content\Posters\LeBoucher.jpg" />
+    <Content Include="Content\Posters\LesMiserables.jpg" />
+    <Content Include="Content\Posters\LifeWithFather.jpg" />
+    <Content Include="Content\Posters\LikeWaterforChocolate.jpg" />
+    <Content Include="Content\Posters\Lili.jpg" />
+    <Content Include="Content\Posters\LittleWomen.jpg" />
+    <Content Include="Content\Posters\LivinginOblivion.jpg" />
+    <Content Include="Content\Posters\LoneStar.jpg" />
+    <Content Include="Content\Posters\LoveAffair.jpg" />
+    <Content Include="Content\Posters\LovelyandAmazing.jpg" />
+    <Content Include="Content\Posters\MajorBarbara.jpg" />
+    <Content Include="Content\Posters\MalcolmX.jpg" />
+    <Content Include="Content\Posters\MeanStreets.jpg" />
+    <Content Include="Content\Posters\MisterRoberts.jpg" />
+    <Content Include="Content\Posters\MonOncle.jpg" />
+    <Content Include="Content\Posters\Monsters,Inc..jpg" />
+    <Content Include="Content\Posters\Moonstruck.jpg" />
+    <Content Include="Content\Posters\Mother.jpg" />
+    <Content Include="Content\Posters\Mrs.Miniver.jpg" />
+    <Content Include="Content\Posters\MulhollandDr..jpg" />
+    <Content Include="Content\Posters\My20thCentury.jpg" />
+    <Content Include="Content\Posters\MyDarlingClementine.jpg" />
+    <Content Include="Content\Posters\MyNightatMaud%27s.jpg" />
+    <Content Include="Content\Posters\Nashville.jpg" />
+    <Content Include="Content\Posters\NationalLampoon%27sAnimalHouse.jpg" />
+    <Content Include="Content\Posters\NightoftheLivingDead.jpg" />
+    <Content Include="Content\Posters\Nobody%27sFool.jpg" />
+    <Content Include="Content\Posters\Notorious.jpg" />
+    <Content Include="Content\Posters\Now,Voyager.jpg" />
+    <Content Include="Content\Posters\Oklahoma!.jpg" />
+    <Content Include="Content\Posters\One,Two,Three.jpg" />
+    <Content Include="Content\Posters\OneFlewOvertheCuckoo%27sNest.jpg" />
+    <Content Include="Content\Posters\OneNightofLove.jpg" />
+    <Content Include="Content\Posters\OnlyAngelsHaveWings.jpg" />
+    <Content Include="Content\Posters\OntheBeach.jpg" />
+    <Content Include="Content\Posters\OrdinaryPeople.jpg" />
+    <Content Include="Content\Posters\Othello.jpg" />
+    <Content Include="Content\Posters\OurTown.jpg" />
+    <Content Include="Content\Posters\Paisan.jpg" />
+    <Content Include="Content\Posters\Persona.jpg" />
+    <Content Include="Content\Posters\Persuasion.jpg" />
+    <Content Include="Content\Posters\Ponette.jpg" />
+    <Content Include="Content\Posters\PrideandPrejudice.jpg" />
+    <Content Include="Content\Posters\PulpFiction.jpg" />
+    <Content Include="Content\Posters\Red.jpg" />
+    <Content Include="Content\Posters\RichardIII.jpg" />
+    <Content Include="Content\Posters\Roger&amp;Me.jpg" />
+    <Content Include="Content\Posters\RomeoandJuliet.jpg" />
+    <Content Include="Content\Posters\RugglesofRedGap.jpg" />
+    <Content Include="Content\Posters\Rushmore.jpg" />
+    <Content Include="Content\Posters\RuthlessPeople.jpg" />
+    <Content Include="Content\Posters\Salesman.jpg" />
+    <Content Include="Content\Posters\SaturdayNightandSundayMorning.jpg" />
+    <Content Include="Content\Posters\SavingPrivateRyan.jpg" />
+    <Content Include="Content\Posters\SecretHonor.jpg" />
+    <Content Include="Content\Posters\SecretsandLies.jpg" />
+    <Content Include="Content\Posters\SexyBeast.jpg" />
+    <Content Include="Content\Posters\ShakespeareinLove.jpg" />
+    <Content Include="Content\Posters\Sherman%27sMarch.jpg" />
+    <Content Include="Content\Posters\ShipofFools.jpg" />
+    <Content Include="Content\Posters\Shrek.jpg" />
+    <Content Include="Content\Posters\Spartacus.jpg" />
+    <Content Include="Content\Posters\SpiritedAway.jpg" />
+    <Content Include="Content\Posters\Stalag17.jpg" />
+    <Content Include="Content\Posters\StopMakingSense.jpg" />
+    <Content Include="Content\Posters\Storytelling.jpg" />
+    <Content Include="Content\Posters\SunsetBoulevard.jpg" />
+    <Content Include="Content\Posters\SweptAway.jpg" />
+    <Content Include="Content\Posters\SwingTime.jpg" />
+    <Content Include="Content\Posters\TalktoHer.jpg" />
+    <Content Include="Content\Posters\TasteofCherry.jpg" />
+    <Content Include="Content\Posters\TenderMercies.jpg" />
+    <Content Include="Content\Posters\ThatObscureObjectofDesire.jpg" />
+    <Content Include="Content\Posters\The400Blows.jpg" />
+    <Content Include="Content\Posters\TheAdjuster.jpg" />
+    <Content Include="Content\Posters\TheAdventuresofRobinHood.jpg" />
+    <Content Include="Content\Posters\TheAfricanQueen.jpg" />
+    <Content Include="Content\Posters\TheAmericanFriend.jpg" />
+    <Content Include="Content\Posters\TheAmericanizationofEmily.jpg" />
+    <Content Include="Content\Posters\TheApartment.jpg" />
+    <Content Include="Content\Posters\TheApostle.jpg" />
+    <Content Include="Content\Posters\TheAsphaltJungle.jpg" />
+    <Content Include="Content\Posters\TheAwfulTruth.jpg" />
+    <Content Include="Content\Posters\TheBadandtheBeautiful.jpg" />
+    <Content Include="Content\Posters\TheBaker%27sWife.jpg" />
+    <Content Include="Content\Posters\TheBalladofCableHogue.jpg" />
+    <Content Include="Content\Posters\TheBandWagon.jpg" />
+    <Content Include="Content\Posters\TheBankDick.jpg" />
+    <Content Include="Content\Posters\TheBattleofAlgiers.jpg" />
+    <Content Include="Content\Posters\TheBestYearsofOurLives.jpg" />
+    <Content Include="Content\Posters\TheBicycleThief.jpg" />
+    <Content Include="Content\Posters\TheBigChill.jpg" />
+    <Content Include="Content\Posters\TheBigClock.jpg" />
+    <Content Include="Content\Posters\TheBigDealonMadonnaStreet.jpg" />
+    <Content Include="Content\Posters\TheBigHeat.jpg" />
+    <Content Include="Content\Posters\TheBigRedOne.jpg" />
+    <Content Include="Content\Posters\TheBigSky.jpg" />
+    <Content Include="Content\Posters\TheBigSleep.jpg" />
+    <Content Include="Content\Posters\TheBirds.jpg" />
+    <Content Include="Content\Posters\TheBreakfastClub.jpg" />
+    <Content Include="Content\Posters\TheBrideWoreBlack.jpg" />
+    <Content Include="Content\Posters\TheBridgeontheRiverKwai.jpg" />
+    <Content Include="Content\Posters\TheBuddyHollyStory.jpg" />
+    <Content Include="Content\Posters\TheButcherBoy.jpg" />
+    <Content Include="Content\Posters\TheCaineMutiny.jpg" />
+    <Content Include="Content\Posters\TheCelebration.jpg" />
+    <Content Include="Content\Posters\TheCiderHouseRules.jpg" />
+    <Content Include="Content\Posters\TheCitadel.jpg" />
+    <Content Include="Content\Posters\TheClockmaker.jpg" />
+    <Content Include="Content\Posters\TheColorofMoney.jpg" />
+    <Content Include="Content\Posters\TheConformist.jpg" />
+    <Content Include="Content\Posters\TheConversation.jpg" />
+    <Content Include="Content\Posters\TheCountofMonteCristo.jpg" />
+    <Content Include="Content\Posters\TheCountryGirl.jpg" />
+    <Content Include="Content\Posters\TheCranesAreFlying.jpg" />
+    <Content Include="Content\Posters\TheCryingGame.jpg" />
+    <Content Include="Content\Posters\TheDamned.jpg" />
+    <Content Include="Content\Posters\TheDayoftheJackal.jpg" />
+    <Content Include="Content\Posters\TheDaytheEarthStoodStill.jpg" />
+    <Content Include="Content\Posters\TheDeerHunter.jpg" />
+    <Content Include="Content\Posters\TheDefiantOnes.jpg" />
+    <Content Include="Content\Posters\TheDirtyDozen.jpg" />
+    <Content Include="Content\Posters\TheDiscreetCharmoftheBourgeoisie.jpg" />
+    <Content Include="Content\Posters\TheDreamlifeofAngels.jpg" />
+    <Content Include="Content\Posters\TheDuellists.jpg" />
+    <Content Include="Content\Posters\TheEnglishPatient.jpg" />
+    <Content Include="Content\Posters\TheFamilyGame.jpg" />
+    <Content Include="Content\Posters\TheFortuneCookie.jpg" />
+    <Content Include="Content\Posters\TheFugitive.jpg" />
+    <Content Include="Content\Posters\TheFullMonty.jpg" />
+    <Content Include="Content\Posters\TheGeneral.jpg" />
+    <Content Include="Content\Posters\TheGleanersandI.jpg" />
+    <Content Include="Content\Posters\TheGodfatherPartII.jpg" />
+    <Content Include="Content\Posters\TheGood,theBadandtheUgly.jpg" />
+    <Content Include="Content\Posters\TheGrapesofWrath.jpg" />
+    <Content Include="Content\Posters\TheGreatMcGinty.jpg" />
+    <Content Include="Content\Posters\TheGunfighter.jpg" />
+    <Content Include="Content\Posters\TheHeartbreakKid.jpg" />
+    <Content Include="Content\Posters\TheHeiress.jpg" />
+    <Content Include="Content\Posters\TheHomecoming.jpg" />
+    <Content Include="Content\Posters\TheHours.jpg" />
+    <Content Include="Content\Posters\TheInsider.jpg" />
+    <Content Include="Content\Posters\TheJazzSinger.jpg" />
+    <Content Include="Content\Posters\TheJudgeandtheAssassin.jpg" />
+    <Content Include="Content\Posters\TheKillers.jpg" />
+    <Content Include="Content\Posters\TheKingofMarvinGardens.jpg" />
+    <Content Include="Content\Posters\TheLadyVanishes.jpg" />
+    <Content Include="Content\Posters\TheLastSeduction.jpg" />
+    <Content Include="Content\Posters\TheLastTemptationofChrist.jpg" />
+    <Content Include="Content\Posters\TheLavenderHillMob.jpg" />
+    <Content Include="Content\Posters\TheLetter.jpg" />
+    <Content Include="Content\Posters\Thelma&amp;Louise.jpg" />
+    <Content Include="Content\Posters\TheLongestDay.jpg" />
+    <Content Include="Content\Posters\TheLostWeekend.jpg" />
+    <Content Include="Content\Posters\TheMadnessofKingGeorge.jpg" />
+    <Content Include="Content\Posters\TheMalteseFalcon.jpg" />
+    <Content Include="Content\Posters\TheManWhoLovedWomen.jpg" />
+    <Content Include="Content\Posters\TheManWhoWasn%27tThere.jpg" />
+    <Content Include="Content\Posters\TheMen.jpg" />
+    <Content Include="Content\Posters\TheMiracleWorker.jpg" />
+    <Content Include="Content\Posters\TheMoretheMerrier.jpg" />
+    <Content Include="Content\Posters\TheOppositeofSex.jpg" />
+    <Content Include="Content\Posters\ThePeopleVs.LarryFlynt.jpg" />
+    <Content Include="Content\Posters\ThePhiladelphiaStory.jpg" />
+    <Content Include="Content\Posters\ThePianist.jpg" />
+    <Content Include="Content\Posters\ThePillowBook.jpg" />
+    <Content Include="Content\Posters\ThePrivateLifeofHenryVIII.jpg" />
+    <Content Include="Content\Posters\ThePublicEnemy.jpg" />
+    <Content Include="Content\Posters\ThePurpleRoseofCairo.jpg" />
+    <Content Include="Content\Posters\TheServant.jpg" />
+    <Content Include="Content\Posters\TheSnakePit.jpg" />
+    <Content Include="Content\Posters\TheStoryofG.I.Joe.jpg" />
+    <Content Include="Content\Posters\TheStraightStory.jpg" />
+    <Content Include="Content\Posters\TheSweetHereafter.jpg" />
+    <Content Include="Content\Posters\TheTenCommandments.jpg" />
+    <Content Include="Content\Posters\TheThinRedLine.jpg" />
+    <Content Include="Content\Posters\TheThirdGeneration.jpg" />
+    <Content Include="Content\Posters\TheThirdMan.jpg" />
+    <Content Include="Content\Posters\TheTrain.jpg" />
+    <Content Include="Content\Posters\TheTreasureoftheSierraMadre.jpg" />
+    <Content Include="Content\Posters\TheTroublewithHarry.jpg" />
+    <Content Include="Content\Posters\TheUsualSuspects.jpg" />
+    <Content Include="Content\Posters\TheWarGame.jpg" />
+    <Content Include="Content\Posters\TheWarriors.jpg" />
+    <Content Include="Content\Posters\TheWaterdance.jpg" />
+    <Content Include="Content\Posters\TheWhalesofAugust.jpg" />
+    <Content Include="Content\Posters\TheWorldofApu.jpg" />
+    <Content Include="Content\Posters\TheYearling.jpg" />
+    <Content Include="Content\Posters\ThirtyTwoShortFilmsAboutGlennGould.jpg" />
+    <Content Include="Content\Posters\ThisSportingLife.jpg" />
+    <Content Include="Content\Posters\ThreeDaysoftheCondor.jpg" />
+    <Content Include="Content\Posters\TightLittleIsland.jpg" />
+    <Content Include="Content\Posters\ToKillaMockingbird.jpg" />
+    <Content Include="Content\Posters\ToLive.jpg" />
+    <Content Include="Content\Posters\TomJones.jpg" />
+    <Content Include="Content\Posters\TouchofEvil.jpg" />
+    <Content Include="Content\Posters\ToyStory.jpg" />
+    <Content Include="Content\Posters\Traffic.jpg" />
+    <Content Include="Content\Posters\Trainspotting.jpg" />
+    <Content Include="Content\Posters\Tristana.jpg" />
+    <Content Include="Content\Posters\Ugetsu.jpg" />
+    <Content Include="Content\Posters\Vanyaon42ndStreet.jpg" />
+    <Content Include="Content\Posters\Vertigo.jpg" />
+    <Content Include="Content\Posters\Viridiana.jpg" />
+    <Content Include="Content\Posters\WakingLife.jpg" />
+    <Content Include="Content\Posters\WelcometotheDollhouse.jpg" />
+    <Content Include="Content\Posters\What%27sEatingGilbertGrape.jpg" />
+    <Content Include="Content\Posters\WhoFramedRogerRabbit.jpg" />
+    <Content Include="Content\Posters\WildReeds.jpg" />
+    <Content Include="Content\Posters\WildStrawberries.jpg" />
+    <Content Include="Content\Posters\Wilson.jpg" />
+    <Content Include="Content\Posters\WingsofDesire.jpg" />
+    <Content Include="Content\Posters\YouCanCountOnMe.jpg" />
+    <Content Include="Content\Posters\YouOnlyLiveOnce.jpg" />
+    <Content Include="Content\Posters\YTuMamáTambién.jpg" />
+    <Content Include="Content\Posters\ZeroforConduct.jpg" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.menu.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.spinner.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\jquery.ui.tooltip.css" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.menu.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.spinner.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tooltip.min.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    
+    <Content Include="Scripts\jquery-1.6.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.6.1.min.js" />
+    <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.8.2.js" />
+    <Content Include="Scripts\jquery-1.8.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.9.0.js" />
+    <Content Include="Scripts\jquery-ui-1.9.0.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Nav.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Director\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Director\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Director\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Director\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Director\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Director\_CreateOrEdit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Country\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Country\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Country\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Country\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Country\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Country\_CreateOrEdit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Genre\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Genre\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Genre\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Genre\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Genre\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Genre\_CreateOrEdit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Home\Nav.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\CurrentUserInfo.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Reviews\Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Code\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Reviews\Views\_ViewStart.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Reviews\Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Reviews\Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Account\Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Account\Views\_ViewStart.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Account\Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Account\Views\Auth\Login.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Account\Views\Auth\Logout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Account\Views\Home\LoggedIn.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Account\Views\Home\Anonymous.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Account\Views\Home\CreateAccount.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Account\Views\Home\CreateAccountSuccess.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\.\Home\CurrentUserInfo.cshtml" />
+    <Content Include="Views\.\Home\Index.cshtml" />
+    <Content Include="Views\.\Home\Nav.cshtml" />
+    <Content Include="Views\.\Shared\Error.cshtml" />
+    <Content Include="Views\.\Shared\_Layout.cshtml" />
+    <Content Include="Views\.\Web.config" />
+    <Content Include="Views\.\_ViewStart.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\.\MovieReviewWebApp\Areas\Admin\Views\User\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\.\MovieReviewWebApp\Areas\Admin\Views\User\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\.\MovieReviewWebApp\Areas\Admin\Views\User\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\.\MovieReviewWebApp\Areas\Admin\Views\User\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\.\MovieReviewWebApp\Areas\Admin\Views\User\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\.\MovieReviewWebApp\Areas\Admin\Views\User\_CreateOrEdit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\DisplayTemplates\Stars.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Account\Views\Home\Profile.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Reviews\Views\Home\Nav.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Movie\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Movie\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Movie\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Movie\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Movie\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Movie\_CreateOrEdit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Review\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Review\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Review\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Review\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Review\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Review\_CreateOrEdit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\User\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\User\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\User\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\User\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\User\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\User\_CreateOrEdit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Reviews\Views\Review\View.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Reviews\Views\Review\Recent.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Reviews\Views\Review\All.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Movies\Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Movies\Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Movies\Views\_ViewStart.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Movies\Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Movies\Views\Home\View.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\Pager.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Reviews\Views\Review\ViewByMovie.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Reviews\Views\Review\CreateFor.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\EditorTemplates\Stars.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Movies\Views\Home\Nav.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Movies\Views\Home\Search.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Movies\Views\Home\SearchResults.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Reviews\Views\Review\SearchResults.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Reviews\Views\Review\Search.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Movies\Views\Home\ByGenre.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\ReviewerGenre\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\ReviewerGenre\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\ReviewerGenre\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\ReviewerGenre\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\ReviewerGenre\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\ReviewerGenre\_CreateOrEdit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Reviews\Views\Review\InvalidGenre.cshtml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>3921</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>attrib -r $(ProjectDir)\App_Data\*.*</PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+</Project>

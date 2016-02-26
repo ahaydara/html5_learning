@@ -1,0 +1,35 @@
+﻿@model MovieReviewApp.Areas.Reviews.ViewModels.AllReviewsViewModel
+@{
+    ViewBag.Title = "All";
+}
+
+<h2>All Movie Reviews</h2>
+@if (Model.TotalItems == 0)
+{
+    <p>No movie reviews.</p>
+}
+else
+{
+    <table>
+        <thead>
+            <tr>
+                <th>@Html.SortHeader(Model, "Review Date", "ReviewDate", "All")</th>
+                <th>@Html.SortHeader(Model, "Reviewer", "UserID", "All")</th>
+                <th>@Html.SortHeader(Model, "Title", "MovieID", "All")</th>
+                <th>@Html.SortHeader(Model, "Stars", "Stars", "All")</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var review in Model.Items)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(x=>review.ReviewDate)</td>
+                    <td>@review.Reviewer.Name</td>
+                    <td>@Html.ActionLink(review.Movie.Title, "View", new { id = review.ID })</td>
+                    <td>@Html.DisplayFor(x => review.Stars)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    @Html.Pager(Model, "All")
+}

@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table {
+            border-collapse:collapse;
+        }
+        #theForm {
+            position:fixed;
+            top: 100px;
+            right:100px;
+            width:300px;
+        }
+        label {
+            display:inline-block;
+            width:70px;
+        }
+        input {
+            width:180px;
+        }
+        tbody > tr:hover {
+            background-color:LightGreen;
+            cursor:pointer;
+        }
+        tbody > tr.selected {
+            background-color:Orange;
+        }
+    </style>
+</head>
+<body>
+    <h1>Movie Listing From jQuery</h1>
+    <table id="results">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Rating</th>
+                <th>Year</th>
+                <th>Director</th>
+                <th>Country</th>
+                <th>Poster</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <form id="theForm">
+        <fieldset>
+            <input type="hidden" name="ID" id="ID" />
+            <legend>Edit Movie</legend>
+            <p><label>Title:</label><input name="Title" id="Title" /></p>
+            <p><label>Rating:</label><input name="Rating" id="Rating" /></p>
+            <p><label>Year:</label><input name="YearReleased" id="YearReleased" /></p>
+            <p><label>Director:</label><input name="Director" id="Director" /></p>
+            <p><label>Country:</label><input name="Country" id="Country" /></p>
+            <p><label>Description:</label><input name="Description" id="Description" /></p>
+            <p>
+                <button value="POST" id="newButton">New</button>
+                <button value="PUT" id="updateButton">Update</button>
+                <button value="DELETE" id="deleteButton">Delete</button>
+            </p>
+        </fieldset>
+    </form>
+    
+    <script type="text/javascript" src="Scripts/jquery-1.7.2.js"></script>
+
+    <script>
+        $(function () {
+            function loadAllMovies() {
+                // TODO: when this javascript executes, access the movies service 
+                // and get the full movie list and populate the above <table> with
+                // the movie data.
+
+            }
+
+            loadAllMovies();
+
+            function loadMovie(movieID) {
+                // TODO: display the movie details in the <form>
+                // for the movieID passed as a param
+
+            }
+
+            $("table tbody").on("click", "tr", function () {
+                var $row = $(this);
+                var selected = $row.hasClass("selected");
+                if (selected) {
+                    $row.removeClass("selected");
+                }
+                else {
+                    $(".selected").removeClass("selected");
+                    $row.addClass("selected");
+                    var movieID = $row.find("td:first").text();
+                    loadMovie(movieID);
+                }
+            });
+
+
+            // TODO: come up with an approach to submit the contents 
+            // of the <form> to the server for the approproate type 
+            // of button click or action (POST, PUT or DELETE). 
+
+        });
+    </script>
+</body>
+</html>

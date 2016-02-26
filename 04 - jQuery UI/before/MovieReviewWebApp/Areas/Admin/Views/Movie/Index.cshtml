@@ -1,0 +1,68 @@
+@model IEnumerable<MovieReviewWebApp.Models.Movie>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<article>
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th></th>
+        <th>
+            Title
+        </th>
+        <th>
+            Year
+        </th>
+        <th>
+            Rating
+        </th>
+        <th>
+            Director
+        </th>
+        <th>
+            Country
+        </th>
+        <th>
+            Genres
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+        <td>
+			@item.Title
+        </td>
+        <td>
+			@item.Year
+        </td>
+        <td>
+			@item.Rating
+        </td>
+        <td>
+			@(item.Director == null ? "None" : item.Director.Name)
+        </td>
+        <td>
+			@(item.Country == null ? "None" : item.Country.Name)
+        </td>
+        <td>
+			@(item.Genres == null ? "None" : item.Genres.Count.ToString())
+        </td>
+    </tr>
+}
+
+</table>
+
+</article>
+

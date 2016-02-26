@@ -1,0 +1,84 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<article>
+    <h1>Welcome to the Movie Website!</h1>
+    <p>Here you will find reviews of the best movies of all time.</p>
+</article>
+
+
+<section id="liveChat">
+    <h2>Live Chat</h2>
+    <p>Your name: <input type="text" id="chatName" data-bind="value:chatName, valueUpdate:'keyup', disable:hasSpoken()" /></p>
+    <ul id="chatOutput" data-bind="template:{name:'chatMessageTemplate', foreach:messageHistory}"></ul>
+    <p>
+        <input tye="text" id="sayText" data-bind="value:message, enable:chatName().length > 0" />
+        <button type="button" id="sayButton" data-bind="click:speak, enable:chatName().length > 0">Say</button>
+    </p>
+</section>
+
+<script id="chatMessageTemplate" type="text/html">
+    <li>[${chatName}] ${message}</li>
+</script>
+
+@section ExtraScripts
+{
+    @if (false)
+    {
+        <script src="../../../../Scripts/jquery-1.8.2-vsdoc.js" type="text/javascript"></script>
+        <script src="../../../../Scripts/knockout-1.2.1.js" type="text/javascript"></script>
+    }
+    
+    <script src="~/Scripts/jquery.tmpl.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/knockout-2.1.0.js" type="text/javascript"></script>
+    
+    <script>
+        $(function () {
+            
+            var lastIndex = -1;
+            
+            function pollChat() {
+                var url = "http://localhost:8888/Chat/GetSince";
+                var data = {lastIndex:lastIndex};
+                $.post(url, data, function(result) {
+                    for(var i = 0; i < result.length; i++) {
+                        updateChatFromServer(result[i].ChatName, result[i].Message);
+                    }
+                    if (result.length > 0) {
+                        lastIndex = result[result.length-1].Index;
+                    }
+                    window.setTimeout(pollChat, 1000);
+                }, "json");
+            }
+            
+            function sendChatToServer(chatName, message) {
+                var url = "http://localhost:8888/Chat/Say";
+                var data = {chatName:chatName, message:message};
+                $.post(url, data);
+            }
+
+            function updateChatFromServer(chatName, message) {
+                vm.messageHistory.push({chatName:chatName, message:message});
+                $("#chatOutput li:last").get(0).scrollIntoView();
+            }
+
+            var vm = {
+                chatName : ko.observable(""),
+                hasSpoken : ko.observable(false),
+                message : ko.observable(""),
+                messageHistory : ko.observableArray()
+            };
+            vm.speak = function() {
+                if (this.hasSpoken() == false) {
+                    pollChat();
+                }
+                this.hasSpoken(true);
+                if (this.message().length > 0) {
+                    sendChatToServer(this.chatName(), this.message());
+                }
+            };
+            ko.applyBindings(vm, document.getElementById("liveChat"));
+        });
+    </script>
+}

@@ -1,0 +1,74 @@
+﻿<Window x:Class="MoviesClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="500" Width="950">
+    <Window.Resources>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Margin" Value="5, 5, 5, 10"></Setter>
+        </Style>
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+        </Style>
+    </Window.Resources>
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="625"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="2" x:Name="status"></Label>
+
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <DataGrid SelectionChanged="dataGrid_SelectionChanged_1" ItemsSource="{Binding}" x:Name="dataGrid" Grid.Row="0" AutoGenerateColumns="False" CanUserDeleteRows="False" CanUserAddRows="False" IsReadOnly="True" SelectionMode="Single">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" Binding="{Binding Path=ID}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Title" Binding="{Binding Path=Title}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Rating" Binding="{Binding Path=Rating}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="YearReleased" Binding="{Binding Path=YearReleased}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Director" Binding="{Binding Path=Director}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Country" Binding="{Binding Path=Country}"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                <Button Click="Click_Refresh">Refresh</Button>
+                <Button Click="Click_Delete">Delete</Button>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackPanel Margin="10" x:Name="details">
+                <Label FontSize="22">Movie Details</Label>
+                <Label>Title</Label>
+                <TextBox Text="{Binding Title}"></TextBox>
+                <Label>Rating</Label>
+                <TextBox Text="{Binding Rating}"></TextBox>
+                <Label>Year Released</Label>
+                <TextBox Text="{Binding YearReleased}"></TextBox>
+                <Label>Description</Label>
+                <TextBox Text="{Binding Description}"></TextBox>
+                <Label>Director</Label>
+                <TextBox Text="{Binding Director}"></TextBox>
+                <Label>Country</Label>
+                <TextBox Text="{Binding Country}"></TextBox>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                <Button Click="Click_Add">Add</Button>
+                <Button Click="Click_Update">Update</Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

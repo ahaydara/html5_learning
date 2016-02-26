@@ -1,0 +1,59 @@
+@model MovieReviewWebApp.Models.User
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<article>
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>User</legend>
+
+    <div class="display-label">Password</div>
+    <div class="display-field">@Model.Password</div>
+
+    <div class="display-label">PasswordHash</div>
+    <div class="display-field">@Model.PasswordHash</div>
+
+    <div class="display-label">PasswordSalt</div>
+    <div class="display-field">@Model.PasswordSalt</div>
+
+    <div class="display-label">Email</div>
+    <div class="display-field">@Model.Email</div>
+
+    <div class="display-label">CreateDate</div>
+    <div class="display-field">@String.Format("{0:g}", Model.CreateDate)</div>
+
+    <div class="display-label">CanLogin</div>
+    <div class="display-field">@Model.CanLogin</div>
+
+    <div class="display-label">LastSuccessfulLogin</div>
+    <div class="display-field">@String.Format("{0:g}", Model.LastSuccessfulLogin)</div>
+
+    <div class="display-label">FailedPasswordCount</div>
+    <div class="display-field">@Model.FailedPasswordCount</div>
+
+    <div class="display-label">LastFailedLogin</div>
+    <div class="display-field">@String.Format("{0:g}", Model.LastFailedLogin)</div>
+
+    <div class="display-label">FirstName</div>
+    <div class="display-field">@Model.FirstName</div>
+
+    <div class="display-label">LastName</div>
+    <div class="display-field">@Model.LastName</div>
+
+    <div class="display-label">IsRoleAdmin</div>
+    <div class="display-field">@Model.IsRoleAdmin</div>
+
+    <div class="display-label">IsRoleReviewer</div>
+    <div class="display-field">@Model.IsRoleReviewer</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+</article>
+

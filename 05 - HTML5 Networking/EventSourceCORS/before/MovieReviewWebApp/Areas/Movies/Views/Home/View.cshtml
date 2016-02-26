@@ -1,0 +1,128 @@
+﻿@model MovieReviewWebApp.Models.Movie
+           
+@{
+    ViewBag.Title = "View";
+}
+
+<article class="movieDetail">
+    <h2>@Model.Title</h2>
+    <p class="moviePoster">
+        @Html.Poster(Model.Title)
+    </p>
+    <p>
+        @Html.LabelFor(x=>x.Country)
+        @Html.DisplayFor(x=>x.Country.Name)
+    </p>
+    <p>
+        @Html.LabelFor(x=>x.Year)
+        @Html.DisplayFor(x=>x.Year)
+    </p>
+    <p>
+        @Html.LabelFor(x=>x.Rating)
+        @Html.DisplayFor(x=>x.Rating)
+    </p>
+    <p>
+        @Html.LabelFor(x=>x.Director)
+        @Html.DisplayFor(x=>x.Director.Name)
+    </p>
+    <p>
+        @Html.LabelFor(x=>x.Genres)
+        @Model.Genres.Select(x=>x.Name).Aggregate((x,y)=>x + ", " + y)
+    </p>
+    <p>
+        @Html.LabelFor(x=>x.AverageStars)
+        <span id="avgStars">@Html.DisplayFor(x => x.AverageStars)</span>
+    </p>
+    <p>
+        @Html.LabelFor(x=>x.NumberOfReviews)
+        <span id="numReviews">@Html.DisplayFor(x => x.NumberOfReviews)</span>
+    </p>
+    <p>
+        @Html.LabelFor(x=>x.Description)
+        @Html.DisplayFor(x=>x.Description)
+    </p>
+</article>
+
+<aside>
+    <nav>
+        <ul>
+            <li>@Html.ActionLink("See all reviews", "ViewByMovie", "Review", new { area = "Reviews", id=Model.ID }, null)</li>
+            <li>@Html.ReviewLink(Model.ID)</li>
+        </ul>
+    </nav>
+</aside>
+
+@section ExtraScripts
+{
+    @if (false)
+    {
+        <script src="../../../../Scripts/jquery-1.8.2-vsdoc.js" type="text/javascript"></script>
+    }
+    
+    <script src="~/Scripts/jquery-ui-1.9.0.js" type="text/javascript"></script>
+    
+    <script>
+        $(function () {
+
+            // update the UI
+            function updateStars(numStars) {
+                var avgStars = $("#avgStars");
+                if (numStars <= 0) {
+                    avgStars.text("No Ratings");
+                }
+                else {
+                    var images = $("#avgStars img");
+                    if (images.length == 0) {
+                        avgStars.empty();
+                        for (var i = 0; i < 5; i++) {
+                            avgStars.append($("<img>"));
+                        }
+                        images = $("#avgStars img");
+                    }
+                    for (var i = 0; i < images.length; i++) {
+                        if (numStars > i) {
+                            images[i].src = '@Url.Content("~/Content/Images/Star.png")';
+                        }
+                        else {
+                            images[i].src = '@Url.Content("~/Content/Images/Star-Empty.png")';
+                        }
+                    }
+                }
+            }
+
+            function updateReviewInfo(data) {
+                var numReviews = $("#numReviews");
+                if (data.NumberOfReviews <= 0) {
+                    numReviews.text("0");
+                    updateStars(0);
+                }
+                else {
+                    numReviews.text(data.NumberOfReviews);
+                    updateStars(data.AverageStars);
+                }
+            }
+
+            
+            // polling functions
+            function pollServer() {
+                var url = '@Url.Action("GetMovieReviewInfo", "MovieMessage", new { id = @Model.ID })';
+                window.setTimeout(function () {
+                    $.post(url, function (result) {
+                        updateReviewInfo(result);
+                        pollServer();
+                    }, "json");
+                }, 2000);
+            }
+
+            var thisMovieID = @Model.ID;
+            
+            function pollServerWithEventSource() {
+                var url = '@Url.Action("GetMovieReviewInfoEvent", "MovieMessage")';
+
+            }
+
+            // if no event source, then use pollServer
+            pollServer();
+        });
+    </script>
+}

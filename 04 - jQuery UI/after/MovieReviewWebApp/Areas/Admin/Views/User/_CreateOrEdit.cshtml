@@ -1,0 +1,115 @@
+@model MovieReviewWebApp.Models.User
+
+@* This partial view defines form fields that will appear when creating and editing entities *@
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Password)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.Password)
+    @Html.ValidationMessageFor(model => model.Password)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.PasswordHash)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.PasswordHash)
+    @Html.ValidationMessageFor(model => model.PasswordHash)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.PasswordSalt)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.PasswordSalt)
+    @Html.ValidationMessageFor(model => model.PasswordSalt)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Email)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.Email)
+    @Html.ValidationMessageFor(model => model.Email)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.CreateDate)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.CreateDate)
+    @Html.ValidationMessageFor(model => model.CreateDate)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.CanLogin)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.CanLogin)
+    @Html.ValidationMessageFor(model => model.CanLogin)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.LastSuccessfulLogin)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.LastSuccessfulLogin)
+    @Html.ValidationMessageFor(model => model.LastSuccessfulLogin)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.FailedPasswordCount)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.FailedPasswordCount)
+    @Html.ValidationMessageFor(model => model.FailedPasswordCount)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.LastFailedLogin)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.LastFailedLogin)
+    @Html.ValidationMessageFor(model => model.LastFailedLogin)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.FirstName)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.FirstName)
+    @Html.ValidationMessageFor(model => model.FirstName)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.LastName)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.LastName)
+    @Html.ValidationMessageFor(model => model.LastName)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.IsRoleAdmin)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.IsRoleAdmin)
+    @Html.ValidationMessageFor(model => model.IsRoleAdmin)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.IsRoleReviewer)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.IsRoleReviewer)
+    @Html.ValidationMessageFor(model => model.IsRoleReviewer)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.IsRoleRegisteredUser)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.IsRoleRegisteredUser)
+    @Html.ValidationMessageFor(model => model.IsRoleRegisteredUser)
+</div>

@@ -1,0 +1,44 @@
+@model MovieReviewApp.Models.Movie
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<article>
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Movie</legend>
+
+    <div class="display-label">Title</div>
+    <div class="display-field">@Model.Title</div>
+
+    <div class="display-label">Description</div>
+    <div class="display-field">@Model.Description</div>
+
+    <div class="display-label">Year</div>
+    <div class="display-field">@Model.Year</div>
+
+    <div class="display-label">Rating</div>
+    <div class="display-field">@Model.Rating</div>
+
+    <div class="display-label">Director</div>
+    <div class="display-field">@(Model.Director == null ? "None" : Model.Director.Name)</div>
+
+    <div class="display-label">Country</div>
+    <div class="display-field">@(Model.Country == null ? "None" : Model.Country.Name)</div>
+
+    <div class="display-label">Genres</div>
+    <div class="display-field">@(Model.Genres == null ? "None" : Model.Genres.Count.ToString())</div>
+
+    <div class="display-label">PosterName</div>
+    <div class="display-field">@Model.PosterName</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+</article>
+

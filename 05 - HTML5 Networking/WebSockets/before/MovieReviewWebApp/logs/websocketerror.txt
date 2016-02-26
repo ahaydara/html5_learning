@@ -1,0 +1,53 @@
+12/26/2011 10:28:20 AM
+System.AggregateException: One or more errors occurred. ---> System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'System.Net.Sockets.NetworkStream'.
+   at System.Net.Sockets.NetworkStream.EndRead(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endMethod, TaskCompletionSource`1 tcs)
+   --- End of inner exception stack trace ---
+---> (Inner Exception #0) System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'System.Net.Sockets.NetworkStream'.
+   at System.Net.Sockets.NetworkStream.EndRead(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endMethod, TaskCompletionSource`1 tcs)<---
+
+12/26/2011 10:29:12 AM
+System.AggregateException: One or more errors occurred. ---> Fleck.WebSocketException: Cannot send before handshake
+   at Fleck.WebSocketConnection.Send(String message)
+   at MovieReviewWebApp.MvcApplication.<>c__DisplayClass7.<>c__DisplayClass9.<StartWebSocketChatServer>b__6(String msg) in C:\ballen\work\DM\jQuery_HTML5\labs\HTML5\05_Messaging\WebSockets\after\MovieReviewWebApp\Global.asax.cs:line 93
+   at Fleck.WebSocketServer.<>c__DisplayClass7.<OnClientConnect>b__4(String s)
+   at Fleck.Handlers.Hybi13Handler.ProcessFrame(FrameType frameType, Byte[] data, Action`1 onMessage, Action onClose)
+   at Fleck.Handlers.Hybi13Handler.<>c__DisplayClass8.<Create>b__5(FrameType op, Byte[] data)
+   at Fleck.Handlers.Hybi13Handler.ReceiveData(List`1 data, ReadState readState, Action`2 processFrame)
+   at Fleck.Handlers.Hybi13Handler.<>c__DisplayClass8.<Create>b__4(List`1 d)
+   at Fleck.Handlers.ComposableHandler.Receive(IEnumerable`1 data)
+   at Fleck.WebSocketConnection.<>c__DisplayClassa.<Read>b__8(Int32 r)
+   at Fleck.SocketWrapper.<>c__DisplayClassa.<Receive>b__8(Task`1 t)
+   at System.Threading.Tasks.Task`1.<>c__DisplayClass17.<ContinueWith>b__16(Object obj)
+   at System.Threading.Tasks.Task.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+   --- End of inner exception stack trace ---
+---> (Inner Exception #0) Fleck.WebSocketException: Cannot send before handshake
+   at Fleck.WebSocketConnection.Send(String message)
+   at MovieReviewWebApp.MvcApplication.<>c__DisplayClass7.<>c__DisplayClass9.<StartWebSocketChatServer>b__6(String msg) in C:\ballen\work\DM\jQuery_HTML5\labs\HTML5\05_Messaging\WebSockets\after\MovieReviewWebApp\Global.asax.cs:line 93
+   at Fleck.WebSocketServer.<>c__DisplayClass7.<OnClientConnect>b__4(String s)
+   at Fleck.Handlers.Hybi13Handler.ProcessFrame(FrameType frameType, Byte[] data, Action`1 onMessage, Action onClose)
+   at Fleck.Handlers.Hybi13Handler.<>c__DisplayClass8.<Create>b__5(FrameType op, Byte[] data)
+   at Fleck.Handlers.Hybi13Handler.ReceiveData(List`1 data, ReadState readState, Action`2 processFrame)
+   at Fleck.Handlers.Hybi13Handler.<>c__DisplayClass8.<Create>b__4(List`1 d)
+   at Fleck.Handlers.ComposableHandler.Receive(IEnumerable`1 data)
+   at Fleck.WebSocketConnection.<>c__DisplayClassa.<Read>b__8(Int32 r)
+   at Fleck.SocketWrapper.<>c__DisplayClassa.<Receive>b__8(Task`1 t)
+   at System.Threading.Tasks.Task`1.<>c__DisplayClass17.<ContinueWith>b__16(Object obj)
+   at System.Threading.Tasks.Task.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()<---
+
+12/26/2011 10:35:04 AM
+System.AggregateException: One or more errors occurred. ---> System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'System.Net.Sockets.NetworkStream'.
+   at System.Net.Sockets.NetworkStream.EndRead(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endMethod, TaskCompletionSource`1 tcs)
+   --- End of inner exception stack trace ---
+---> (Inner Exception #0) System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'System.Net.Sockets.NetworkStream'.
+   at System.Net.Sockets.NetworkStream.EndRead(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endMethod, TaskCompletionSource`1 tcs)<---
+

@@ -1,0 +1,34 @@
+﻿@model MovieReviewWebApp.Areas.Account.Models.CreateAccountInputModel
+           
+@{
+    ViewBag.Title = "CreateAccount";
+}
+
+<h2>Create An Account</h2>
+<p>Please enter the information below to create an account.</p>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary("Please correct the following problems and try again:")
+    <fieldset>
+        <legend></legend>
+        <p>
+            @Html.LabelFor(x=>x.Username)
+            @Html.EditorFor(x=>x.Username)
+            @Html.ValidationMessageFor(x => x.Username, " ") 
+        </p>
+        <p>
+            @Html.LabelFor(x=>x.Password)
+            @Html.EditorFor(x => x.Password)
+            @Html.ValidationMessageFor(x => x.Password, " ") 
+        </p>
+        <p>
+            @Html.LabelFor(x=>x.Email)
+            @Html.EditorFor(x => x.Email)
+            @Html.ValidationMessageFor(x => x.Email, " ") 
+        </p>
+        <p>
+            <input type="submit" value="Create Account" />
+        </p>
+    </fieldset>
+}

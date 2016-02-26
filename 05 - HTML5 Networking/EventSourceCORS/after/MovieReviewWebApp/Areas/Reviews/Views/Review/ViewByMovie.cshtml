@@ -1,0 +1,47 @@
+﻿@model MovieReviewWebApp.Areas.Reviews.ViewModels.ReviewsViewByMovieViewModel
+@{
+    ViewBag.Title = "ViewByMovie";
+}
+
+<article class="reviewDetail">
+    <h1>All Reviews for: @Model.Movie.Title (@Model.Movie.Year) [@Model.Movie.Rating]</h1>
+    <p class="moviePoster">
+        @Html.Poster(Model.Movie.Title)
+    </p>
+    <p>
+        @Html.LabelFor(x=>x.Movie.AverageStars)
+        @Html.DisplayFor(x=>x.Movie.AverageStars)
+    </p>
+    <ul>
+        @foreach (var review in Model.Reviews)
+        {
+            <li>
+                <p>
+                    <label>Reviewer</label>
+                    @Html.DisplayFor(x => review.Reviewer.Name)
+                </p>
+                <p>
+                    @Html.LabelFor(x => review.ReviewDate)
+                    @Html.DisplayFor(x => review.ReviewDate)
+                </p>
+                <p>
+                    @Html.LabelFor(x => review.Stars)
+                    @Html.DisplayFor(x => review.Stars)
+                </p>
+                <p>
+                    @Html.LabelFor(x => review.Comment)
+                    @Html.DisplayFor(x => review.Comment)
+                </p>
+            </li>
+        }
+    </ul>
+</article>
+
+<aside>
+    <nav>
+        <ul>
+            <li>@Html.ActionLink("View movie details", "View", "Home", new{area="Movies", id=Model.Movie.ID}, null)</li>
+            <li>@Html.ReviewLink(Model.Movie.ID)</li>
+        </ul>
+    </nav>
+</aside>

@@ -1,0 +1,25 @@
+﻿@model MovieReviewWebApp.Areas.Reviews.ViewModels.CreateReviewViewModel
+           
+@{
+    ViewBag.Title = "CreateFor";
+}
+
+<h1>New Review : @Model.Movie.Title (@Model.Movie.Year) [@Model.Movie.Rating]</h1>
+@using(Html.BeginForm())
+{
+    @Html.HiddenFor(x=>x.MovieID)
+    <fieldset class="newReview">
+        <legend></legend>
+        <p>
+            @Html.LabelFor(x=>x.Stars)
+            @Html.EditorFor(x=>x.Stars)
+        </p>
+        <p>
+            @Html.LabelFor(x=>x.Comment)
+            @Html.EditorFor(x=>x.Comment)
+        </p>
+        <p>
+            <input type="submit" value="Create Review" />
+        </p>
+    </fieldset>
+}

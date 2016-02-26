@@ -1,0 +1,18 @@
+﻿@model MovieReviewApp.ViewModels.NavigationViewModel
+
+@helper MenuSelected(string name)
+{
+    if (Model.Action.Equals(name, StringComparison.OrdinalIgnoreCase))
+    {
+        <text>class="menu-current"</text>
+    }
+}
+
+<nav>
+    <ul>
+        <li @MenuSelected("recent")>@Html.ActionLink("Recent Reviews", "Recent", "Review")</li>
+        <li @MenuSelected("all")>@Html.ActionLink("All Reviews", "All", "Review")</li>
+        <li @MenuSelected("search")>@Html.ActionLink("Search Reviews", "Search", "Review")</li>
+        @*<li @MenuSelected("create")>@Html.ActionLink("Write a Review", "Create", "Review")</li>*@
+    </ul>
+</nav>

@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Capitals and Countries</title>
+    <link href="Content/themes/base/jquery.ui.all.css" rel="stylesheet" />
+    <style>
+        li {
+            color: red;
+        }
+
+            li.correct {
+                color: green;
+            }
+    </style>
+</head>
+<body ng-app="dmApp" ng-controller="demoCtrl">
+    <h2>Select European countries with their capitals</h2>
+
+    <form name="form">
+        <input type="text"
+               ng-model="currentCapital"
+               ng-required="true"
+               dm-auto-complete="knownCapitals"
+               placeholder="Enter capital" />
+        <input type="text"
+               ng-model="currentCountry"
+               ng-required="true"
+               dm-auto-complete="knownCountries"
+               placeholder="Enter country" />
+        <button ng-click="addCountry()"
+                ng-disabled="!form.$valid">
+            Add
+        </button>
+    </form>
+
+    <ol>
+        <li ng-repeat="country in selectedCountries"
+            ng-class="{correct: country.correct}">
+            {{country.capital}} {{country.correct ? "is" : "isn't"}} the capital of {{country.country}}
+        </li>
+    </ol>
+
+    <script src="Scripts/jquery-1.10.2.js"></script>
+    <script src="Scripts/jquery-ui-1.10.3.js"></script>
+    <script src="Scripts/angular.js"></script>
+    <script src="App/Directives.js"></script>
+    <script src="App/App.js"></script>
+</body>
+</html>

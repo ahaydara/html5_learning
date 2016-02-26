@@ -1,0 +1,42 @@
+﻿@model MovieReviewWebApp.ViewModels.AccountLoginViewModel
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+@if (Model.ShowWarning)
+{
+    <p>You are already logged in as @Model.Username, but don't have the privileges required to access that resource. 
+    Please login with credentials that do have access.</p>
+}
+@if (!String.IsNullOrWhiteSpace(Model.RolesRequired))
+{
+    <p>To access that resource you need to login as a @Model.RolesRequired.</p>
+}
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary("Please correct these errors and try again:")
+    @Html.HiddenFor(x => x.ReturnUrl)
+
+    <fieldset>
+        <legend></legend>
+        <p>
+            @Html.LabelFor(x => x.Username)
+            @Html.EditorFor(x => x.Username)
+            @Html.ValidationMessageFor(x => x.Username, " ")
+        </p>
+        <p>
+            @Html.LabelFor(x => x.Password)
+            @Html.EditorFor(x => x.Password)
+            @Html.ValidationMessageFor(x => x.Password, " ")
+        </p>
+        <p>
+            <input type="submit" value="Login" />
+        </p>
+    </fieldset>
+}
+
+<p>Not registered? @Html.ActionLink("Click here.", "CreateAccount", "Home")</p>

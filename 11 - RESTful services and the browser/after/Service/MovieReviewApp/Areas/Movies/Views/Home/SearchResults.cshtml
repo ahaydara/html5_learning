@@ -1,0 +1,37 @@
+﻿@model IEnumerable<MovieReviewApp.Models.Movie>
+@{
+    ViewBag.Title = "SearchResults";
+}
+
+<h2>Movie Search Results</h2>
+@if (Model.Count() == 0)
+{
+    <p>No matches.</p>
+}
+else
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Released</th>
+                <th>Rating</th>
+                <th>Reviews</th>
+                <th>Average Stars</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var movie in Model)
+            {
+                <tr>
+                    <td>@Html.ActionLink(movie.Title, "View", new { movie.ID })</td>
+                    <td>@movie.Year</td>
+                    <td>@movie.Rating</td>
+                    <td>@movie.NumberOfReviews</td>
+                    <td>@Html.DisplayFor(x=>movie.AverageStars)</td>
+                </tr>                
+            }
+        </tbody>
+    </table>
+} 
+

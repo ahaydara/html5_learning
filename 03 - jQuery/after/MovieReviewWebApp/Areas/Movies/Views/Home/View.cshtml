@@ -1,0 +1,53 @@
+﻿@model MovieReviewWebApp.Models.Movie
+           
+@{
+    ViewBag.Title = "View";
+}
+
+<article class="movieDetail">
+    <h2>@Model.Title</h2>
+    <p class="moviePoster">
+        @Html.Poster(Model.Title)
+    </p>
+    <p>
+        @Html.LabelFor(x=>x.Country)
+        @Html.DisplayFor(x=>x.Country.Name)
+    </p>
+    <p>
+        @Html.LabelFor(x=>x.Year)
+        @Html.DisplayFor(x=>x.Year)
+    </p>
+    <p>
+        @Html.LabelFor(x=>x.Rating)
+        @Html.DisplayFor(x=>x.Rating)
+    </p>
+    <p>
+        @Html.LabelFor(x=>x.Director)
+        @Html.DisplayFor(x=>x.Director.Name)
+    </p>
+    <p>
+        @Html.LabelFor(x=>x.Genres)
+        @Model.Genres.Select(x=>x.Name).Aggregate((x,y)=>x + ", " + y)
+    </p>
+    <p>
+        @Html.LabelFor(x=>x.AverageStars)
+        @Html.DisplayFor(x=>x.AverageStars)
+    </p>
+    <p>
+        @Html.LabelFor(x=>x.NumberOfReviews)
+        @Html.DisplayFor(x=>x.NumberOfReviews)
+    </p>
+    <p>
+        @Html.LabelFor(x=>x.Description)
+        @Html.DisplayFor(x=>x.Description)
+    </p>
+</article>
+
+<aside>
+    <nav>
+        <ul>
+            <li>@Html.ActionLink("See all reviews", "ViewByMovie", "Review", new { area = "Reviews", id=Model.ID }, null)</li>
+            <li>@Html.ReviewLink(Model.ID)</li>
+        </ul>
+    </nav>
+</aside>

@@ -1,0 +1,27 @@
+﻿@model MovieReviewWebApp.Areas.Reviews.ViewModels.InvalidGenreViewModel
+@{
+    ViewBag.Title = "InvalidGenre";
+}
+
+<h2>Invalid Genre</h2>
+<p>Sorry, you're not allowed to provide a review for that movie.</p>
+<p>The genres you are allowed to review are: 
+@if(Model.AllowedGenres.Count() == 0)
+{
+    @:none
+}
+else
+{
+    @Model.AllowedGenres.Select(x=>x.Name).Aggregate((x,y)=>x+", "+y)
+}.
+</p>
+<p>This movie's genres are: 
+@if(Model.CurrentMovieGenres.Count() == 0)
+{
+    @:none
+}
+else
+{
+    @Model.CurrentMovieGenres.Select(x=>x.Name).Aggregate((x,y)=>x+", "+y)
+}.
+</p>

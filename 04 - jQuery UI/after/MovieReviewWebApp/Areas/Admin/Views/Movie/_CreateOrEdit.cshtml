@@ -1,0 +1,66 @@
+@model MovieReviewWebApp.Models.Movie
+
+@* This partial view defines form fields that will appear when creating and editing entities *@
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Title)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.Title)
+    @Html.ValidationMessageFor(model => model.Title)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Description)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.Description)
+    @Html.ValidationMessageFor(model => model.Description)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Year)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.Year)
+    @Html.ValidationMessageFor(model => model.Year)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Rating)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.Rating)
+    @Html.ValidationMessageFor(model => model.Rating)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.PosterName)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.PosterName)
+    @Html.ValidationMessageFor(model => model.PosterName)
+</div>
+
+<div class="editor-label">
+    Director
+</div>
+<div class="editor-field">
+    @Html.DropDownListFor(model => model.DirectorID, ((IEnumerable<MovieReviewWebApp.Models.Director>)ViewBag.PossibleDirectors).Select(option => new SelectListItem {
+        Text = (option == null ? "None" : option.Name), 
+        Value = option.ID.ToString(),
+        Selected = (Model != null) && (option.ID == Model.DirectorID)
+    }), "Choose...")
+    @Html.ValidationMessageFor(model => model.DirectorID)
+</div>
+<div class="editor-label">
+    Country
+</div>
+<div class="editor-field">
+    @Html.DropDownListFor(model => model.CountryID, ((IEnumerable<MovieReviewWebApp.Models.Country>)ViewBag.PossibleCountries).Select(option => new SelectListItem {
+        Text = (option == null ? "None" : option.Name), 
+        Value = option.ID.ToString(),
+        Selected = (Model != null) && (option.ID == Model.CountryID)
+    }), "Choose...")
+    @Html.ValidationMessageFor(model => model.CountryID)
+</div>

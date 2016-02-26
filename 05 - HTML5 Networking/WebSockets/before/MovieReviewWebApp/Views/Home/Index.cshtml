@@ -1,0 +1,81 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<article>
+    <h1>Welcome to the Movie Website!</h1>
+    <p>Here you will find reviews of the best movies of all time.</p>
+</article>
+
+
+<section id="liveChat">
+    <h2>Live Chat</h2>
+    <p>Your name: <input type="text" id="chatName" data-bind="value:chatName, valueUpdate:'keyup', disable:hasSpoken()" /></p>
+    <ul id="chatOutput" data-bind="template:{name:'chatMessageTemplate', foreach:messageHistory}"></ul>
+    <p>
+        <input tye="text" id="sayText" data-bind="value:message, enable:chatName().length > 0" />
+        <button type="button" id="sayButton" data-bind="click:speak, enable:chatName().length > 0">Say</button>
+    </p>
+</section>
+
+<script id="chatMessageTemplate" type="text/html">
+    <li>[${chatName}] ${message}</li>
+</script>
+
+@section ExtraScripts
+{
+    @if (false)
+    {
+        <script src="../../../../Scripts/jquery-1.8.2-vsdoc.js" type="text/javascript"></script>
+        <script src="../../../../Scripts/knockout-1.2.1.js" type="text/javascript"></script>
+    }
+    
+    <script src="~/Scripts/jquery.tmpl.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/knockout-1.2.1.js" type="text/javascript"></script>
+    
+    <script>
+        WebSocket = window.WebSocket || window.MozWebSocket;
+
+        $(function () {
+
+            var socket;
+            function initWebSocket() {
+                // TODO : 1) create the web socket
+                //        2) register for the onmessage event. in the event handler, parse the 
+                //           JSON and then call udpateChatFromServer with the data
+
+
+            }
+            initWebSocket();
+
+            function sendChatToServer(chatName, message) {
+                // TODO : 1) put chatName and message into an object and stringify it
+                //        2) send JSON string to the web socket
+
+
+            }
+
+            function updateChatFromServer(chatName, message) {
+                vm.messageHistory.push({ chatName: chatName, message: message });
+                $("#chatOutput li:last").get(0).scrollIntoView();
+            }
+
+            var vm = {
+                chatName: ko.observable(""),
+                hasSpoken: ko.observable(false),
+                message: ko.observable(""),
+                messageHistory: ko.observableArray()
+            };
+            vm.speak = function () {
+                if (!this.hasSpoken()) {
+                    sendChatToServer(this.chatName(), "<joined the conversation>");
+                }
+                this.hasSpoken(true);
+                if (this.message().length > 0) {
+                    sendChatToServer(this.chatName(), this.message());
+                }
+            };
+            ko.applyBindings(vm, document.getElementById("liveChat"));
+        });
+    </script>
+}

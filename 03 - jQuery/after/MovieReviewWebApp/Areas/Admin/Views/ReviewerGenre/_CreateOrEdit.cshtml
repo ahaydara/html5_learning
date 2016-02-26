@@ -1,0 +1,26 @@
+@model MovieReviewWebApp.Models.ReviewerGenre
+
+@* This partial view defines form fields that will appear when creating and editing entities *@
+
+<div class="editor-label">
+    User
+</div>
+<div class="editor-field">
+    @Html.DropDownListFor(model => model.UserID, ((IEnumerable<MovieReviewWebApp.Models.User>)ViewBag.PossibleUsers).Select(option => new SelectListItem {
+        Text = (option == null ? "None" : option.Name), 
+        Value = option.ID.ToString(),
+        Selected = (Model != null) && (option.ID == Model.UserID)
+    }), "Choose...")
+    @Html.ValidationMessageFor(model => model.UserID)
+</div>
+<div class="editor-label">
+    Genre
+</div>
+<div class="editor-field">
+    @Html.DropDownListFor(model => model.GenreID, ((IEnumerable<MovieReviewWebApp.Models.Genre>)ViewBag.PossibleGenres).Select(option => new SelectListItem {
+        Text = (option == null ? "None" : option.Name), 
+        Value = option.ID.ToString(),
+        Selected = (Model != null) && (option.ID == Model.GenreID)
+    }), "Choose...")
+    @Html.ValidationMessageFor(model => model.GenreID)
+</div>

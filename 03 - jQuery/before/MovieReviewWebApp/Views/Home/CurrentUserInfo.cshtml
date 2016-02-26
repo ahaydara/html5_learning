@@ -1,0 +1,25 @@
+﻿@model MovieReviewWebApp.Service.ICurrentUser
+
+<aside id="home-currentuserinfo">
+    @if (Model.IsLoggedIn)
+    {
+        <span>Logged in as: @Model.Username</span>
+    }
+    else
+    {
+        <span>Not logged in</span>
+    }
+    <nav>
+        <ul>
+            <li>@Html.ActionLink("Account", "Index", "Home", new { area = "Account" }, null)</li>
+            @if (Model.IsLoggedIn)
+            {
+                <li>@Html.ActionLink("Logout", "Logout", "Auth", new { area = "Account" }, null)</li>
+            }
+            else
+            {
+                <li>@Html.ActionLink("Login", "Login", "Auth", new { area = "Account" }, null)</li>
+            }
+        </ul>
+    </nav>
+</aside>

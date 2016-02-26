@@ -1,0 +1,50 @@
+@model MovieReviewWebApp.Models.Review
+
+@* This partial view defines form fields that will appear when creating and editing entities *@
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Stars)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.Stars)
+    @Html.ValidationMessageFor(model => model.Stars)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Comment)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.Comment)
+    @Html.ValidationMessageFor(model => model.Comment)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.ReviewDate)
+</div>
+<div class="editor-field editor-date">
+    @Html.EditorFor(model => model.ReviewDate)
+    @Html.ValidationMessageFor(model => model.ReviewDate)
+</div>
+
+<div class="editor-label">
+    Movie
+</div>
+<div class="editor-field">
+    @Html.DropDownListFor(model => model.MovieID, ((IEnumerable<MovieReviewWebApp.Models.Movie>)ViewBag.PossibleMovies).Select(option => new SelectListItem {
+        Text = (option == null ? "None" : option.Title), 
+        Value = option.ID.ToString(),
+        Selected = (Model != null) && (option.ID == Model.MovieID)
+    }), "Choose...")
+    @Html.ValidationMessageFor(model => model.MovieID)
+</div>
+<div class="editor-label">
+    User
+</div>
+<div class="editor-field">
+    @Html.DropDownListFor(model => model.UserID, ((IEnumerable<MovieReviewWebApp.Models.User>)ViewBag.PossibleUsers).Select(option => new SelectListItem {
+        Text = (option == null ? "None" : option.Name), 
+        Value = option.ID.ToString(),
+        Selected = (Model != null) && (option.ID == Model.UserID)
+    }), "Choose...")
+    @Html.ValidationMessageFor(model => model.UserID)
+</div>

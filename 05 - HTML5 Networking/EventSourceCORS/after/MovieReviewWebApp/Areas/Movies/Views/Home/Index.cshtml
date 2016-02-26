@@ -1,0 +1,40 @@
+﻿@model MovieReviewWebApp.Areas.Movies.ViewModels.MovieIndexViewModel
+           
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Movie Index</h2>
+@if (Model.TotalItems == 0)
+{
+    <p>No movies.</p>
+}
+else
+{
+    <table>
+        <thead>
+            <tr>
+                <th>@Html.SortHeader(Model, "Title", "Title", "Index")</th>
+                <th>Country</th>
+                <th>@Html.SortHeader(Model, "Released", "Year", "Index")</th>
+                <th>@Html.SortHeader(Model, "Rating", "Rating", "Index")</th>
+                <th>Reviews</th>
+                <th>Average Stars</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var movie in Model.Items)
+            {
+                <tr>
+                    <td>@Html.ActionLink(movie.Title, "View", new { movie.ID })</td>
+                    <td>@movie.Country.Name</td>
+                    <td>@movie.Year</td>
+                    <td>@movie.Rating</td>
+                    <td>@movie.NumberOfReviews</td>
+                    <td>@Html.DisplayFor(x=>movie.AverageStars)</td>
+                </tr>                
+            }
+        </tbody>
+    </table>
+    @Html.Pager(Model, "Index")
+} 

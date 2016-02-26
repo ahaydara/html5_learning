@@ -1,0 +1,26 @@
+@model MovieReviewApp.Models.Genre
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<article>
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Genre</legend>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">@Model.Name</div>
+
+    <div class="display-label">Movies</div>
+    <div class="display-field">@(Model.Movies == null ? "None" : Model.Movies.Count.ToString())</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+</article>
+

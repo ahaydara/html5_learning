@@ -1,0 +1,10 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Welcome Back</h2>
+@if (TempData["Message"] != null)
+{
+    <p>@TempData["Message"]</p>
+}
+<p>@Html.ActionLink("Update your profile", "Profile")</p>

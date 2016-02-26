@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Search";
+}
+
+<h2>Review Search</h2>
+<div id="reviewSearch">
+@using(Html.BeginForm())
+{
+    <fieldset>
+        <legend></legend>
+        <p>
+            <label>Search</label>
+            @Html.TextBox("term")
+            @Html.Image("~/Content/Images/wait.gif")
+        </p>
+        <p>
+            <input type="submit" value="Search" />
+        </p>
+    </fieldset>
+}
+</div>
+<div id="searchResults"></div>

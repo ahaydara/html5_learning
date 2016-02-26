@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table {
+            border-collapse:collapse;
+        }
+        #theForm {
+            position:fixed;
+            top: 100px;
+            right:100px;
+            width:300px;
+        }
+        label {
+            display:inline-block;
+            width:70px;
+        }
+        input {
+            width:180px;
+        }
+        tbody > tr:hover {
+            background-color:LightGreen;
+            cursor:pointer;
+        }
+        tbody > tr.selected {
+            background-color:Orange;
+        }
+    </style>
+</head>
+<body>
+    <h1>Movie Listing From jQuery</h1>
+    <table id="results">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Rating</th>
+                <th>Year</th>
+                <th>Director</th>
+                <th>Country</th>
+                <th>Poster</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <form id="theForm">
+        <fieldset>
+            <input type="hidden" name="ID" id="ID" />
+            <legend>Edit Movie</legend>
+            <p><label>Title:</label><input name="Title" id="Title" /></p>
+            <p><label>Rating:</label><input name="Rating" id="Rating" /></p>
+            <p><label>Year:</label><input name="YearReleased" id="YearReleased" /></p>
+            <p><label>Director:</label><input name="Director" id="Director" /></p>
+            <p><label>Country:</label><input name="Country" id="Country" /></p>
+            <p><label>Description:</label><input name="Description" id="Description" /></p>
+            <p>
+                <button value="POST">New</button>
+                <button value="PUT">Update</button>
+                <button value="DELETE">Delete</button>
+            </p>
+        </fieldset>
+    </form>
+    
+    <script type="text/javascript" src="Scripts/jquery-1.7.2.js"></script>
+    <script>
+        $(function () {
+            var movieCache = {};
+            function showResults(results) {
+                var tbody = $("#results tbody");
+                tbody.empty();
+                $.each(results, function () {
+                    movieCache[this.ID] = this;
+                    var poster = "<img width=50 src='/api/Movies/" + this.ID + "?$format=jpg'>";
+                    var row = "<tr><td>" +
+                        this.ID +
+                        "</td><td>" +
+                        this.Title +
+                        "</td><td>" +
+                        (this.Rating || "") +
+                        "</td><td>" +
+                        this.YearReleased +
+                        "</td><td>" +
+                        (this.Director || "") +
+                        "</td><td>" +
+                        this.Country +
+                        "</td><td>" +
+                        poster +
+                        "</td></tr>";
+                    tbody.append($(row));
+                });
+            }
+
+            function loadAllMovies() {
+                $.ajax({
+                    url: "/api/Movies/",
+                    type: "GET",
+                    dataType: "json",
+                    success: showResults
+                });
+            }
+
+            loadAllMovies();
+
+            function edit(movie) {
+                for (var prop in movie) {
+                    $("#" + prop).val(movie[prop]);
+                }
+            }
+
+            function loadMovie(movieID) {
+                var movie = movieCache[movieID];
+                edit(movie);
+            }
+
+            $("table tbody").on("click", "tr", function () {
+                var $row = $(this);
+                var selected = $row.hasClass("selected");
+                if (selected) {
+                    $row.removeClass("selected");
+                }
+                else {
+                    $(".selected").removeClass("selected");
+                    $row.addClass("selected");
+                    var movieID = $row.find("td:first").text();
+                    loadMovie(movieID);
+                }
+            });
+
+            $("#theForm button").click(function (e) {
+                e.preventDefault();
+
+                var settings = {
+                    url: "/api/movies/",
+                    type: this.value,
+                    data: $("#theForm").serialize()
+                };
+
+                if (this.value != "POST") {
+                    settings.url += $("#ID").val();
+                }
+
+                $.ajax(settings).done(loadAllMovies);
+            });
+
+            //$("#theForm").on("click", "button", function () {
+            //    $("#method").val(this.value);
+            //});
+
+            //$("#theForm").submit(function (e) {
+            //    e.preventDefault();
+
+            //    var data = {};
+            //    $(this).find("input").each(function () {
+            //        data[this.id] = this.value;
+            //    });
+
+            //    var url = "/api/movies/";
+            //    if (data.method == "PUT" || data.method == "DELETE") {
+            //        url += data.ID;
+            //    }
+
+            //    var method = data.method;
+            //    delete data.method;
+
+            //    $.ajax({
+            //        url: url,
+            //        type: method,
+            //        data: JSON.stringify(data),
+            //        contentType : "application/json",
+            //        dataType : "json",
+            //        success: function (result, status, xhr) {
+            //            alert("success");
+            //        },
+            //        error: function (xhr, status, error) {
+            //            var errors = JSON.parse(xhr.responseText);
+            //            alert("Error: " + errors);
+            //        }
+            //    });
+            //});
+        });
+    </script>
+</body>
+</html>

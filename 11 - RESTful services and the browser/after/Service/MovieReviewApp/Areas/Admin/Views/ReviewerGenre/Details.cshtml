@@ -1,0 +1,26 @@
+@model MovieReviewApp.Models.ReviewerGenre
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<article>
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>ReviewerGenre</legend>
+
+    <div class="display-label">Genre</div>
+    <div class="display-field">@(Model.Genre == null ? "None" : Model.Genre.Name)</div>
+
+    <div class="display-label">Reviewer</div>
+    <div class="display-field">@(Model.Reviewer == null ? "None" : Model.Reviewer.Name)</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+</article>
+

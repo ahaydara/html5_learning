@@ -1,0 +1,21 @@
+﻿@model MovieReviewWebApp.Areas.Admin.ViewModels.AdminNavViewModel
+
+@helper MenuSelected(string name)
+{
+    if (Model.AdminController.Equals(name, StringComparison.OrdinalIgnoreCase))
+    {
+        <text>class="menu-current"</text>
+    }
+}
+
+<nav>
+    <ul>
+        <li @MenuSelected("admin-country")>@Html.ActionLink("Countries", "Index", "Country")</li>
+        <li @MenuSelected("admin-director")>@Html.ActionLink("Directors", "Index", "Director")</li>
+        <li @MenuSelected("admin-genre")>@Html.ActionLink("Genres", "Index", "Genre")</li>
+        <li @MenuSelected("admin-movie")>@Html.ActionLink("Movies", "Index", "Movie")</li>
+        <li @MenuSelected("admin-review")>@Html.ActionLink("Reviews", "Index", "Review")</li>
+        <li @MenuSelected("admin-user")>@Html.ActionLink("Users", "Index", "User")</li>
+        <li @MenuSelected("admin-ReviewerGenre")>@Html.ActionLink("Reviewers", "Index", "ReviewerGenre")</li>
+    </ul>
+</nav>

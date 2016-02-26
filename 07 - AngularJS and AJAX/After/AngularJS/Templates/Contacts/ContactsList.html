@@ -1,0 +1,15 @@
+﻿<h2>Contact list</h2>
+
+<div>
+    Search:
+    <input type="search" data-ng-model="filter" />
+
+</div>
+
+<div>
+    <ol>
+        <li data-ng-repeat="person in people|filter:filter">
+            <a data-ng-href="#/person/{{person.id}}">{{person.firstName}} {{person.lastName}}</a>
+        </li>
+    </ol>
+</div>

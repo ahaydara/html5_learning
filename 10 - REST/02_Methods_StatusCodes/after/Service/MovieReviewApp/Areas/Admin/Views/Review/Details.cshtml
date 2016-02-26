@@ -1,0 +1,35 @@
+@model MovieReviewApp.Models.Review
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<article>
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Review</legend>
+
+    <div class="display-label">Stars</div>
+    <div class="display-field">@Model.Stars</div>
+
+    <div class="display-label">Comment</div>
+    <div class="display-field">@Model.Comment</div>
+
+    <div class="display-label">ReviewDate</div>
+    <div class="display-field">@String.Format("{0:g}", Model.ReviewDate)</div>
+
+    <div class="display-label">Movie</div>
+    <div class="display-field">@(Model.Movie == null ? "None" : Model.Movie.Title)</div>
+
+    <div class="display-label">Reviewer</div>
+    <div class="display-field">@(Model.Reviewer == null ? "None" : Model.Reviewer.LastName)</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+</article>
+

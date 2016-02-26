@@ -1,0 +1,22 @@
+﻿@model MovieReviewWebApp.Models.User
+           
+@{
+    ViewBag.Title = "Profile";
+}
+
+<h2>Profile : @Model.ID</h2>
+@using(Html.BeginForm())
+{
+    <fieldset>
+        <legend></legend>
+        <p>
+            @Html.LabelFor(x=>x.FirstName)
+            @Html.EditorFor(x=>x.FirstName)
+        </p>
+        <p>
+            @Html.LabelFor(x=>x.LastName)
+            @Html.EditorFor(x=>x.LastName)
+        </p>
+        <p><input type="submit" value="Submit" /></p>
+    </fieldset>
+}

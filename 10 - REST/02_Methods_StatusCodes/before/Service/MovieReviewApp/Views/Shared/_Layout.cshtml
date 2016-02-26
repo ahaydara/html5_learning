@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/themes/base/css", "~/Content/css")
+    @RenderSection("ExtraStylesheets", false)
+</head>
+<body>
+    <header>
+        <h1>Movie Review Website</h1>
+    </header>
+    
+    @Html.Action("Nav", "Home", new { area = "" })
+    @Html.Action("CurrentUserInfo", "Home", new { area="" })
+
+    @RenderSection("ExtraNavigation", false)
+    
+    <hr />
+    
+    @RenderBody()
+
+    <hr />
+
+    <footer>
+        <p>Movie Review Website <time datetime="@DateTime.Now.ToString("s")">@DateTime.Now.Year</time></p>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/knockout-2.1.0.js"></script>
+    @RenderSection("ExtraScripts", required: false)
+</body>
+</html>

@@ -1,0 +1,110 @@
+@model IEnumerable<MovieReviewWebApp.Models.User>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<article>
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th></th>
+        <th>
+            Password
+        </th>
+        <th>
+            PasswordHash
+        </th>
+        <th>
+            PasswordSalt
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            CreateDate
+        </th>
+        <th>
+            CanLogin
+        </th>
+        <th>
+            LastSuccessfulLogin
+        </th>
+        <th>
+            FailedPasswordCount
+        </th>
+        <th>
+            LastFailedLogin
+        </th>
+        <th>
+            FirstName
+        </th>
+        <th>
+            LastName
+        </th>
+        <th>
+            IsRoleAdmin
+        </th>
+        <th>
+            IsRoleReviewer
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+        <td>
+			@item.Password
+        </td>
+        <td>
+			@item.PasswordHash
+        </td>
+        <td>
+			@item.PasswordSalt
+        </td>
+        <td>
+			@item.Email
+        </td>
+        <td>
+			@String.Format("{0:g}", item.CreateDate)
+        </td>
+        <td>
+			@item.CanLogin
+        </td>
+        <td>
+			@String.Format("{0:g}", item.LastSuccessfulLogin)
+        </td>
+        <td>
+			@item.FailedPasswordCount
+        </td>
+        <td>
+			@String.Format("{0:g}", item.LastFailedLogin)
+        </td>
+        <td>
+			@item.FirstName
+        </td>
+        <td>
+			@item.LastName
+        </td>
+        <td>
+			@item.IsRoleAdmin
+        </td>
+        <td>
+			@item.IsRoleReviewer
+        </td>
+    </tr>
+}
+
+</table>
+
+</article>
+
